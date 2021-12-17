@@ -1,0 +1,6 @@
+_type: yaraGroupRule
+seedId: c7746f91-3bcd-11eb-a8ff-0afb22c22b4b
+name: upt_windows_yara_rules
+description: Uptycs default process memory rules for yara
+rules: "rule Uptycs_test_v1\n{\n\tmeta:\n\t malware_name = \"HTran\"\n\t description = \"HTran is a proxy tool used to intercept and redirect Transmission Control Protocol connections from the local host to a remote host.\"\n\t author = \"test\"\n\t version = \"1\"\n\n\n\tstrings:\n\t $HTran0 = \"<listen|tran|slave>\" ascii wide nocase\n\t $HTran1 = \"<ConnectPort>\" ascii wide nocase\n\t $HTran2 = \"htran\" ascii wide nocase\n\n\tcondition:\n\t 2 of ($HTran*)\n}\n\n\n"
+custom: false
